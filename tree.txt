@@ -1,0 +1,38 @@
+// tree.cpp : 定义控制台应用程序的入口点。
+//
+
+#include "stdafx.h"
+#include"iostream"
+using namespace std;
+int _tmain(int argc, _TCHAR* argv[])
+{  int N;
+   int n,m;
+   int gcd(int a,int b);
+   cin>>N;
+   int c=N;
+   int *count=new int[N];
+   
+   while(N--){
+	   cin>>n>>m;
+	   count[N]=0;
+	   for(int i=1;i<=m;i++)
+		   for(int j=1;j<=n;j++)
+		   {    
+			   if(gcd(i,j)==1)
+				   count[N]++;
+		   }
+   }
+    for(int j=c-1;j>=0;j--)
+	cout<<count[j]<<endl;
+	return 0;
+}
+int gcd(int a, int b)
+{
+    while(b != 0)
+    {
+        int r = b;
+        b = a % b;
+        a = r;
+    }
+    return a;
+}
